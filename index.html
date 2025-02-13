@@ -12,6 +12,8 @@
             font-family: Arial, sans-serif;
             text-align: center;
             background-color: #f7efe5;
+            margin: 0;
+            overflow: hidden;
         }
 
         .container {
@@ -34,8 +36,8 @@
         }
 
         .option img {
-            width: 300px;
-            height: 300px;
+            width: 275px;
+            height: 275px;
             margin: 10px;
             cursor: pointer;
             border: 3px solid transparent;
@@ -64,11 +66,9 @@
             0% {
                 transform: scale(1.1);
             }
-
             50% {
                 transform: scale(1.15);
             }
-
             100% {
                 transform: scale(1.1);
             }
@@ -85,7 +85,6 @@
             border: none;
             border-radius: 20px;
             background-color: #7cb365;
-            /* Ghibli green */
             color: #fff;
             font-size: 16px;
             font-weight: bold;
@@ -95,7 +94,6 @@
 
         .buttons button:hover {
             background-color: #7cb365;
-            /* Darker Ghibli green for hover */
             transform: scale(1.05);
             box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
         }
@@ -105,19 +103,43 @@
             font-family: 'Dancing Script', cursive;
             text-align: center;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            
         }
 
         h1 {
             font-size: 3rem;
             color: #af462e;
-            
         }
 
         h2 {
             font-size: 2rem;
             color: #2b1a16;
-           
+        }
+
+        .rat-container {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .rat {
+            width: 120px;
+            height: 64px;
+            background: url('Images/Miso.gif') no-repeat;
+            background-size: auto 100%;
+            margin-bottom: 30px;
+            
+        }
+
+        @keyframes move {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(100px); }
+        }
+
+        @keyframes animateRat {
+            0% { background-position: 0 0; }
+            100% { background-position: -384px 0; }
         }
     </style>
 </head>
@@ -143,77 +165,11 @@
                 </div>
             </div>
         </div>
-
-        <div id="step2" class="hidden">
-            <h2>Choose a Restaurant</h2>
-            <div class="options">
-                <div class="option" onclick="chooseOption(2, 'Italian Restaurant')">
-                    <img src="italian.jpg" alt="Italian">
-                    <p>Romantic Italian cuisine with candlelight.</p>
-                </div>
-                <div class="option" onclick="chooseOption(2, 'Sushi Place')">
-                    <img src="sushi.jpg" alt="Sushi">
-                    <p>Fresh sushi with a serene ambiance.</p>
-                </div>
-                <div class="option" onclick="chooseOption(2, 'Steakhouse')">
-                    <img src="steak.jpg" alt="Steakhouse">
-                    <p>A hearty meal in a warm rustic setting.</p>
-                </div>
-            </div>
-            <div class="buttons">
-                <button onclick="goBack(1)">Go Back</button>
-            </div>
-        </div>
-
-        <div id="step3" class="hidden">
-            <h2>Choose Your Outfit</h2>
-            <div class="options">
-                <div class="option" onclick="chooseOption(3, 'Casual')">
-                    <img src="casual.jpg" alt="Casual">
-                    <p>Relaxed and effortless, perfect for any setting.</p>
-                </div>
-                <div class="option" onclick="chooseOption(3, 'Formal')">
-                    <img src="formal.jpg" alt="Formal">
-                    <p>Elegant and timeless for a special occasion.</p>
-                </div>
-                <div class="option" onclick="chooseOption(3, 'Comfy')">
-                    <img src="comfy.jpg" alt="Comfy">
-                    <p>Soft and cozy for a laid-back experience.</p>
-                </div>
-            </div>
-            <div class="buttons">
-                <button onclick="goBack(2)">Go Back</button>
-            </div>
-        </div>
-
-        <div id="summary" class="hidden">
-            <h2>Your Date Plan</h2>
-            <p id="summaryText"></p>
-            <div class="buttons">
-                <button onclick="goBack(3)">Go Back</button>
-            </div>
-        </div>
     </div>
 
-    <script>
-        let selections = {};
-
-        function chooseOption(step, choice) {
-            selections[step] = choice;
-            document.getElementById(`step${step}`).classList.add('hidden');
-            if (step < 3) {
-                document.getElementById(`step${step + 1}`).classList.remove('hidden');
-            } else {
-                document.getElementById('summary').classList.remove('hidden');
-                document.getElementById('summaryText').innerText = `You chose a ${selections[1]}, dining at a ${selections[2]}, wearing ${selections[3]} attire.`;
-            }
-        }
-
-        function goBack(step) {
-            document.getElementById(`step${step + 1}`).classList.add('hidden');
-            document.getElementById(`step${step}`).classList.remove('hidden');
-        }
-    </script>
+    <div class="rat-container">
+        <div class="rat"></div>
+    </div>
 </body>
 
 </html>
