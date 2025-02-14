@@ -160,13 +160,16 @@
 </head>
 
 <body>
+    <audio autoplay>
+        <source src="/Music/Greatest Studio Ghibli Soundtracks _ Peaceful Melodies for a Tranquil Mind [ ezmp3.cc ].mp3">
+    </audio>
     <div class="container">
         <h1>Kaitlyn's Valentines Date Pick-Your-Own Adventure</h1>
 
         <div id="step1">
             <h2>Choose a Date Idea</h2>
             <div class="options">
-                <div class="option" onclick="choooseOption(1, 'Museum', 'Images/museum.jpg')">
+                <div class="option" onclick="chooseOption(1, 'Museum', 'Images/museum.jpg')">
                     <img src="Images/museum.jpg" alt="Museum">
                     <p>A peaceful musuem tour to hide from the winter cold.</p>
                 </div>
@@ -274,10 +277,6 @@
         function goBack(step) {
             document.getElementById(`step${step + 1}`).classList.add('hidden');
             document.getElementById(`step${step}`).classList.remove('hidden');
-        }
-
-        function choooseOption(){
-            window.open("https://rb.gy/smos90", "_blank");
         }
     </script>
 </body>
