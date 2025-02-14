@@ -23,6 +23,7 @@
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
+            cursor: pointer;
         }
 
         .option {
@@ -120,7 +121,7 @@
 
         }
 
-        .rat-container {
+        .pet-container {
             bottom: 0;
             left: 0;
             right: 0;
@@ -133,6 +134,23 @@
             width: 120px;
             height: 64px;
             background: url('Images/Miso.gif') no-repeat;
+            background-size: auto 100%;
+            margin-bottom: 30px;
+            cursor: pointer;
+        }
+
+        .chip {
+            width: 120px;
+            height: 64px;
+            background: url('Images/chip.gif') no-repeat;
+            background-size: auto 100%;
+            margin-bottom: 30px;
+            cursor: pointer;
+        }
+        .oreo {
+            width: 120px;
+            height: 64px;
+            background: url('Images/oreo.gif') no-repeat;
             background-size: auto 100%;
             margin-bottom: 30px;
             cursor: pointer;
@@ -160,6 +178,8 @@
 </head>
 
 <body>
+    <div class="main-container">
+
     <div class="container">
         <h1>Kaitlyn's Valentines Date Pick-Your-Own Adventure</h1>
 
@@ -232,11 +252,18 @@
             </div>
         </div>
     </div>
-    <div class="rat-container">
+    <div class="pet-container">
         <div class="rat" onclick="toggleAudio()"></div>
+        <div class="chip" onclick="toggleAudio()"></div>
+        <div class="oreo" onclick="toggleAudio()"></div>
     </div>
+<<<<<<< HEAD
+   
+=======
+</div>
+>>>>>>> f4a8f49bc4c32b28be77e04b4ebe2457a014261b
     <audio id="background-audio">
-        <source src="/Music/Greatest Studio Ghibli Soundtracks _ Peaceful Melodies for a Tranquil Mind [ ezmp3.cc ].mp3">
+        <source src="assets/studiogmusic.mp3">
     </audio>
 
     <script>
