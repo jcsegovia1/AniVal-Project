@@ -175,6 +175,11 @@
             font-weight: bold;
             color: #5a3e36;
         }
+        .play-button{
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
     </style>
 </head>
 
@@ -258,8 +263,10 @@
             <div class="chip" onclick="toggleAudio()"></div>
             <div class="oreo" onclick="toggleAudio()"></div>
         </div>
-
-
+    </div>
+    <div class="play-button" onclick="toggleAudio()">
+        <img id="play-icon" src="Images/play.png" style="display: block;">
+        <img id="pause-icon" src="Images/pause.png" style="display: none;">
     </div>
 
     </div>
@@ -308,16 +315,22 @@
         }
 
         let isPlaying = false;
-        const audio = document.getElementById('background-audio');
+    const audio = document.getElementById('background-audio');
+    const playIcon = document.getElementById('play-icon');
+    const pauseIcon = document.getElementById('pause-icon');
 
-        function toggleAudio() {
-            if (isPlaying) {
-                audio.pause();
-            } else {
-                audio.play();
-            }
-            isPlaying = !isPlaying;
+    function toggleAudio() {
+        if (isPlaying) {
+            audio.pause();
+            playIcon.style.display = 'block'; // Show the play icon
+            pauseIcon.style.display = 'none'; // Hide the pause icon
+        } else {
+            audio.play();
+            playIcon.style.display = 'none'; // Hide the play icon
+            pauseIcon.style.display = 'block'; // Show the pause icon
         }
+        isPlaying = !isPlaying;
+    }
     </script>
 </body>
 
