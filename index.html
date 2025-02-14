@@ -127,7 +127,6 @@
             width: 100%;
             display: flex;
             justify-content: space-around;
-            pointer-events: none;
         }
 
         .rat {
@@ -136,6 +135,7 @@
             background: url('Images/Miso.gif') no-repeat;
             background-size: auto 100%;
             margin-bottom: 30px;
+            cursor: pointer;
         }
 
         .image-summary {
@@ -232,10 +232,10 @@
             </div>
         </div>
     </div>
-    <div class="rat-container" onclick="toggleAudio()">
-        <div class="rat"></div>
+    <div class="rat-container">
+        <div class="rat" onclick="toggleAudio()"></div>
     </div>
-    <audio id="backgroun-audio">
+    <audio id="background-audio">
         <source src="/Music/Greatest Studio Ghibli Soundtracks _ Peaceful Melodies for a Tranquil Mind [ ezmp3.cc ].mp3">
     </audio>
 
