@@ -147,6 +147,7 @@
             margin-bottom: 30px;
             cursor: pointer;
         }
+
         .oreo {
             width: 120px;
             height: 64px;
@@ -180,88 +181,88 @@
 <body>
     <div class="main-container">
 
-    <div class="container">
-        <h1>Kaitlyn's Valentines Date Pick-Your-Own Adventure</h1>
+        <div class="container">
+            <h1>Kaitlyn's Valentines Date Pick-Your-Own Adventure</h1>
 
-        <div id="step1">
-            <h2>Choose a Date Idea</h2>
-            <div class="options">
-                <div class="option" onclick="chooseOption(1, 'Museum', 'Images/museum.jpg')">
-                    <img src="Images/museum.jpg" alt="Museum">
-                    <p>A peaceful musuem tour to hide from the winter cold.</p>
+            <div id="step1">
+                <h2>Choose a Date Idea</h2>
+                <div class="options">
+                    <div class="option" onclick="chooseOption(1, 'Museum', 'Images/museum.jpg')">
+                        <img src="Images/museum.jpg" alt="Museum">
+                        <p>A peaceful musuem tour to hide from the winter cold.</p>
+                    </div>
+                    <div class="option" onclick="chooseOption(1, 'Fancy Dinner', 'Images/dinner.jpg')">
+                        <img src="Images/dinner.jpg" alt="Fancy Dinner">
+                        <p>A magical evening at a cozy restaurant.</p>
+                    </div>
+                    <div class="option" onclick="chooseOption(1, 'Movie Night', 'Images/movie.jpg')">
+                        <img src="Images/movie.jpg" alt="Movie Night">
+                        <p>A nostalgic movie night and dreamy cuddles.</p>
+                    </div>
                 </div>
-                <div class="option" onclick="chooseOption(1, 'Fancy Dinner', 'Images/dinner.jpg')">
-                    <img src="Images/dinner.jpg" alt="Fancy Dinner">
-                    <p>A magical evening at a cozy restaurant.</p>
+            </div>
+
+            <div id="step2" class="hidden">
+                <h2>Choose a Restaurant</h2>
+                <div class="options">
+                    <div class="option" onclick="chooseOption(2, 'Italian Restaurant', 'Images/italian.gif')">
+                        <img src="Images/italian.gif" alt="Italian">
+                        <p>Romantic Italian cuisine with candlelight.</p>
+                    </div>
+                    <div class="option" onclick="chooseOption(2, 'Sushi Place', 'Images/sushi.gif')">
+                        <img src="Images/sushi.gif" alt="Sushi">
+                        <p>Fresh sushi with a serene ambiance.</p>
+                    </div>
+                    <div class="option" onclick="chooseOption(2, 'Vegetarian Place', 'Images/vegan.jpg')">
+                        <img src="Images/vegan.jpg" alt="Vegan">
+                        <p>Vegetarian meal in a warm rustic setting.</p>
+                    </div>
                 </div>
-                <div class="option" onclick="chooseOption(1, 'Movie Night', 'Images/movie.jpg')">
-                    <img src="Images/movie.jpg" alt="Movie Night">
-                    <p>A nostalgic movie night and dreamy cuddles.</p>
+                <div class="buttons">
+                    <button onclick="goBack(1)">Go Back</button>
+                </div>
+            </div>
+
+            <div id="step3" class="hidden">
+                <h2>Choose Your Outfit</h2>
+                <div class="options">
+                    <div class="option" onclick="chooseOption(3, 'Dark Academia', 'Images/dark-academia.jpg')">
+                        <img src="Images/dark-academia.jpg" alt="Dark Academia">
+                        <p>Relaxed and effortless, perfect for the booktok girly fans.</p>
+                    </div>
+                    <div class="option" onclick="chooseOption(3, 'Formal', 'Images/formal.jpg')">
+                        <img src="Images/formal.jpg" alt="Formal">
+                        <p>Elegant and timeless for a special occasion.</p>
+                    </div>
+                    <div class="option" onclick="chooseOption(3, 'Comfy', 'Images/comfy.jpg')">
+                        <img src="Images/comfy.jpg" alt="Comfy">
+                        <p>Soft and cozy for a laid-back experience.</p>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button onclick="goBack(2)">Go Back</button>
+                </div>
+            </div>
+
+            <div id="summary" class="hidden">
+                <h2>Your Date Plan</h2>
+                <p id="summaryText"></p>
+                <div id="summaryImages"></div> <!-- Added for selected images -->
+                <div class="buttons">
+                    <button onClick="window.location.reload();">Start Over?</button>
                 </div>
             </div>
         </div>
-
-        <div id="step2" class="hidden">
-            <h2>Choose a Restaurant</h2>
-            <div class="options">
-                <div class="option" onclick="chooseOption(2, 'Italian Restaurant', 'Images/italian.gif')">
-                    <img src="Images/italian.gif" alt="Italian">
-                    <p>Romantic Italian cuisine with candlelight.</p>
-                </div>
-                <div class="option" onclick="chooseOption(2, 'Sushi Place', 'Images/sushi.gif')">
-                    <img src="Images/sushi.gif" alt="Sushi">
-                    <p>Fresh sushi with a serene ambiance.</p>
-                </div>
-                <div class="option" onclick="chooseOption(2, 'Vegetarian Place', 'Images/vegan.jpg')">
-                    <img src="Images/vegan.jpg" alt="Vegan">
-                    <p>Vegetarian meal in a warm rustic setting.</p>
-                </div>
-            </div>
-            <div class="buttons">
-                <button onclick="goBack(1)">Go Back</button>
-            </div>
+        <div class="pet-container">
+            <div class="rat" onclick="toggleAudio()"></div>
+            <div class="chip" onclick="toggleAudio()"></div>
+            <div class="oreo" onclick="toggleAudio()"></div>
         </div>
 
-        <div id="step3" class="hidden">
-            <h2>Choose Your Outfit</h2>
-            <div class="options">
-                <div class="option" onclick="chooseOption(3, 'Dark Academia', 'Images/dark-academia.jpg')">
-                    <img src="Images/dark-academia.jpg" alt="Dark Academia">
-                    <p>Relaxed and effortless, perfect for the booktok girly fans.</p>
-                </div>
-                <div class="option" onclick="chooseOption(3, 'Formal', 'Images/formal.jpg')">
-                    <img src="Images/formal.jpg" alt="Formal">
-                    <p>Elegant and timeless for a special occasion.</p>
-                </div>
-                <div class="option" onclick="chooseOption(3, 'Comfy', 'Images/comfy.jpg')">
-                    <img src="Images/comfy.jpg" alt="Comfy">
-                    <p>Soft and cozy for a laid-back experience.</p>
-                </div>
-            </div>
-            <div class="buttons">
-                <button onclick="goBack(2)">Go Back</button>
-            </div>
-        </div>
 
-        <div id="summary" class="hidden">
-            <h2>Your Date Plan</h2>
-            <p id="summaryText"></p>
-            <div id="summaryImages"></div> <!-- Added for selected images -->
-            <div class="buttons">
-                <button onClick="window.location.reload();">Start Over?</button>
-            </div>
-        </div>
     </div>
-    <div class="pet-container">
-        <div class="rat" onclick="toggleAudio()"></div>
-        <div class="chip" onclick="toggleAudio()"></div>
-        <div class="oreo" onclick="toggleAudio()"></div>
+
     </div>
-<<<<<<< HEAD
-   
-=======
-</div>
->>>>>>> f4a8f49bc4c32b28be77e04b4ebe2457a014261b
     <audio id="background-audio">
         <source src="assets/studiogmusic.mp3">
     </audio>
@@ -281,7 +282,7 @@
             } else {
                 document.getElementById('summary').classList.remove('hidden');
                 document.getElementById('summaryText').innerText = `You chose a ${selections[1]}, dining at a ${selections[2]}, wearing ${selections[3]} attire.`;
-                
+
                 // Add images and text to the summary section
                 let summaryImages = document.getElementById('summaryImages');
                 summaryImages.innerHTML = `
