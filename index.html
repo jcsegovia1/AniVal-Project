@@ -127,7 +127,7 @@
             right: 0;
             width: 100%;
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
         }
 
         .rat {
@@ -301,8 +301,8 @@
 
         function chooseOption(step, choice, imgSrc) {
             selections[step] = choice;
-            images[step] = imgSrc;  // Save the image source for the selected step
-            labels[step] = choice;  // Save the label (choice) for display under the image
+            images[step] = imgSrc; 
+            labels[step] = choice;  
             document.getElementById(`step${step}`).classList.add('hidden');
             if (step < 3) {
                 document.getElementById(`step${step + 1}`).classList.remove('hidden');
@@ -310,7 +310,7 @@
                 document.getElementById('summary').classList.remove('hidden');
                 document.getElementById('summaryText').innerText = `You chose a ${selections[1]}, dining at a ${selections[2]}, wearing ${selections[3]} attire.`;
 
-                // Add images and text to the summary section
+               
                 let summaryImages = document.getElementById('summaryImages');
                 summaryImages.innerHTML = `
                     <div class="image-summary">
