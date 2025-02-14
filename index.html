@@ -23,6 +23,7 @@
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
+            cursor: pointer;
         }
 
         .option {
@@ -160,6 +161,8 @@
 </head>
 
 <body>
+    <div class="main-container">
+
     <div class="container">
         <h1>Kaitlyn's Valentines Date Pick-Your-Own Adventure</h1>
 
@@ -235,8 +238,9 @@
     <div class="rat-container">
         <div class="rat" onclick="toggleAudio()"></div>
     </div>
+</div>
     <audio id="background-audio">
-        <source src="/Music/Greatest Studio Ghibli Soundtracks _ Peaceful Melodies for a Tranquil Mind [ ezmp3.cc ].mp3">
+        <source src="/Music/Greatest Studio Ghibli Soundtracks _ Peaceful Melodies for a Tranquil Mind [ ezmp3.cc ].mp3?raw=true">
     </audio>
 
     <script>
