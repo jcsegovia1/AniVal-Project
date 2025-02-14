@@ -61,19 +61,88 @@
             width: 200px;
         }
 
-        @keyframes breathing {
+        @keyframes moveLeftRight {
             0% {
-                transform: scale(1.1);
+                transform: translateX(0) scaleX(1);
+            }
+
+            49% {
+                transform: translateX(200px) scaleX(1);
             }
 
             50% {
-                transform: scale(1.15);
+                transform: translateX(200px) scaleX(-1);
+            }
+
+            99% {
+                transform: translateX(0) scaleX(-1);
             }
 
             100% {
-                transform: scale(1.1);
+                transform: translateX(0) scaleX(1);
             }
         }
+
+        @keyframes moveRightLeft {
+            0% {
+                transform: translateX(0) scaleX(1);
+            }
+
+            49% {
+                transform: translateX(-200px) scaleX(1);
+            }
+
+            50% {
+                transform: translateX(-200px) scaleX(-1);
+            }
+
+            99% {
+                transform: translateX(0) scaleX(-1);
+            }
+
+            100% {
+                transform: translateX(0) scaleX(1);
+            }
+        }
+
+        /* Apply animation to all pets */
+        .pet-container div {
+            animation-duration: 3s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            transition: transform 0.1s ease-in-out;
+        }
+
+        /* Staggered Flipping */
+        .black {
+            animation-name: moveLeftRight;
+            animation-delay: 0s;
+        }
+
+        .chip {
+            animation-name: moveLeftRight;
+            animation-delay: 1.5s;
+            /* Stagger flip timing */
+        }
+
+        .oreo {
+            animation-name: moveRightLeft;
+            animation-delay: 0.75s;
+            /* Different timing */
+        }
+
+        .moonpie {
+            animation-name: moveRightLeft;
+            animation-delay: 2.25s;
+            /* Offset from Chip */
+        }
+
+        .rat {
+            animation-name: moveLeftRight;
+            animation-delay: 0.5s;
+        }
+
+
 
         .hidden {
             display: none;
@@ -156,6 +225,7 @@
             margin: 30px;
             cursor: pointer;
         }
+
         .moonpie {
             width: 120px;
             height: 64px;
@@ -164,6 +234,7 @@
             margin: 30px;
             cursor: pointer;
         }
+
         .black {
             width: 120px;
             height: 64px;
@@ -191,7 +262,8 @@
             font-weight: bold;
             color: #5a3e36;
         }
-        .play-button{
+
+        .play-button {
             position: absolute;
             top: 0;
             right: 0;
@@ -278,10 +350,10 @@
         <div class="pet-container">
             <div class="black"></div>
             <div class="rat"></div>
-            <div class="chip" ></div>
-            <div class="oreo" ></div>
+            <div class="chip"></div>
+            <div class="oreo"></div>
             <div class="moonpie"></div>
-            
+
         </div>
     </div>
     <div class="play-button" onclick="toggleAudio()">
@@ -301,8 +373,8 @@
 
         function chooseOption(step, choice, imgSrc) {
             selections[step] = choice;
-            images[step] = imgSrc; 
-            labels[step] = choice;  
+            images[step] = imgSrc;
+            labels[step] = choice;
             document.getElementById(`step${step}`).classList.add('hidden');
             if (step < 3) {
                 document.getElementById(`step${step + 1}`).classList.remove('hidden');
@@ -310,7 +382,7 @@
                 document.getElementById('summary').classList.remove('hidden');
                 document.getElementById('summaryText').innerText = `You chose a ${selections[1]}, dining at a ${selections[2]}, wearing ${selections[3]} attire.`;
 
-               
+
                 let summaryImages = document.getElementById('summaryImages');
                 summaryImages.innerHTML = `
                     <div class="image-summary">
@@ -335,22 +407,22 @@
         }
 
         let isPlaying = false;
-    const audio = document.getElementById('background-audio');
-    const playIcon = document.getElementById('play-icon');
-    const pauseIcon = document.getElementById('pause-icon');
+        const audio = document.getElementById('background-audio');
+        const playIcon = document.getElementById('play-icon');
+        const pauseIcon = document.getElementById('pause-icon');
 
-    function toggleAudio() {
-        if (isPlaying) {
-            audio.pause();
-            playIcon.style.display = 'block'; // Show the play icon
-            pauseIcon.style.display = 'none'; // Hide the pause icon
-        } else {
-            audio.play();
-            playIcon.style.display = 'none'; // Hide the play icon
-            pauseIcon.style.display = 'block'; // Show the pause icon
+        function toggleAudio() {
+            if (isPlaying) {
+                audio.pause();
+                playIcon.style.display = 'block'; // Show the play icon
+                pauseIcon.style.display = 'none'; // Hide the pause icon
+            } else {
+                audio.play();
+                playIcon.style.display = 'none'; // Hide the play icon
+                pauseIcon.style.display = 'block'; // Show the pause icon
+            }
+            isPlaying = !isPlaying;
         }
-        isPlaying = !isPlaying;
-    }
     </script>
 </body>
 
