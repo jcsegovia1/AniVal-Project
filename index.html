@@ -137,25 +137,6 @@
             background-size: auto 100%;
             margin-bottom: 30px;
         }
-
-        .image-summary {
-            display: inline-block;
-            text-align: center;
-            margin: 10px;
-        }
-
-        .image-summary img {
-            width: 150px;
-            height: 150px;
-            border-radius: 10px;
-        }
-
-        .image-summary p {
-            margin-top: 5px;
-            font-size: 14px;
-            font-weight: bold;
-            color: #5a3e36;
-        }
     </style>
 </head>
 
@@ -166,15 +147,15 @@
         <div id="step1">
             <h2>Choose a Date Idea</h2>
             <div class="options">
-                <div class="option" onclick="chooseOption(1, 'Picnic', 'Images/picnic.jpg')">
+                <div class="option" onclick="chooseOption(1, 'Picnic')">
                     <img src="Images/picnic.jpg" alt="Picnic">
                     <p>A peaceful picnic under the cherry blossoms.</p>
                 </div>
-                <div class="option" onclick="chooseOption(1, 'Fancy Dinner', 'Images/dinner.jpg')">
+                <div class="option" onclick="chooseOption(1, 'Fancy Dinner')">
                     <img src="Images/dinner.jpg" alt="Fancy Dinner">
                     <p>A magical evening at a cozy restaurant.</p>
                 </div>
-                <div class="option" onclick="chooseOption(1, 'Movie Night', 'Images/movie.jpg')">
+                <div class="option" onclick="chooseOption(1, 'Movie Night')">
                     <img src="Images/movie.jpg" alt="Movie Night">
                     <p>A nostalgic movie night and dreamy cuddles.</p>
                 </div>
@@ -184,17 +165,17 @@
         <div id="step2" class="hidden">
             <h2>Choose a Restaurant</h2>
             <div class="options">
-                <div class="option" onclick="chooseOption(2, 'Italian Restaurant', 'Images/italian.gif')">
+                <div class="option" onclick="chooseOption(2, 'Italian Restaurant')">
                     <img src="Images/italian.gif" alt="Italian">
                     <p>Romantic Italian cuisine with candlelight.</p>
                 </div>
-                <div class="option" onclick="chooseOption(2, 'Sushi Place', 'Images/sushi.gif')">
+                <div class="option" onclick="chooseOption(2, 'Sushi Place')">
                     <img src="Images/sushi.gif" alt="Sushi">
                     <p>Fresh sushi with a serene ambiance.</p>
                 </div>
-                <div class="option" onclick="chooseOption(2, 'Vegetarian Place', 'Images/vegan.jpg')">
+                <div class="option" onclick="chooseOption(2, 'Vegetarian Place')">
                     <img src="Images/vegan.jpg" alt="Vegan">
-                    <p>Vegetarian meal in a warm rustic setting.</p>
+                    <p>Vegeterian meal in a warm rustic setting.</p>
                 </div>
             </div>
             <div class="buttons">
@@ -205,15 +186,15 @@
         <div id="step3" class="hidden">
             <h2>Choose Your Outfit</h2>
             <div class="options">
-                <div class="option" onclick="chooseOption(3, 'Casual', 'Images/casual.png')">
+                <div class="option" onclick="chooseOption(3, 'Casual')">
                     <img src="Images/casual.png" alt="Casual">
                     <p>Relaxed and effortless, perfect for any setting.</p>
                 </div>
-                <div class="option" onclick="chooseOption(3, 'Formal', 'Images/formal.jpg')">
+                <div class="option" onclick="chooseOption(3, 'Formal')">
                     <img src="Images/formal.jpg" alt="Formal">
                     <p>Elegant and timeless for a special occasion.</p>
                 </div>
-                <div class="option" onclick="chooseOption(3, 'Comfy', 'Images/comfy.jpg')">
+                <div class="option" onclick="chooseOption(3, 'Comfy')">
                     <img src="Images/comfy.jpg" alt="Comfy">
                     <p>Soft and cozy for a laid-back experience.</p>
                 </div>
@@ -226,7 +207,6 @@
         <div id="summary" class="hidden">
             <h2>Your Date Plan</h2>
             <p id="summaryText"></p>
-            <div id="summaryImages"></div> 
             <div class="buttons">
                 <button onClick="window.location.reload();">Start Over?</button>
             </div>
@@ -238,35 +218,15 @@
 
     <script>
         let selections = {};
-        let images = {};
-        let labels = {};
 
-        function chooseOption(step, choice, imgSrc) {
+        function chooseOption(step, choice) {
             selections[step] = choice;
-            images[step] = imgSrc; 
-            labels[step] = choice; 
             document.getElementById(`step${step}`).classList.add('hidden');
             if (step < 3) {
                 document.getElementById(`step${step + 1}`).classList.remove('hidden');
             } else {
                 document.getElementById('summary').classList.remove('hidden');
                 document.getElementById('summaryText').innerText = `You chose a ${selections[1]}, dining at a ${selections[2]}, wearing ${selections[3]} attire.`;
-                
-                let summaryImages = document.getElementById('summaryImages');
-                summaryImages.innerHTML = `
-                    <div class="image-summary">
-                        <img src="${images[1]}" alt="Date Idea">
-                        <p>${labels[1]}</p>
-                    </div>
-                    <div class="image-summary">
-                        <img src="${images[2]}" alt="Restaurant">
-                        <p>${labels[2]}</p>
-                    </div>
-                    <div class="image-summary">
-                        <img src="${images[3]}" alt="Outfit">
-                        <p>${labels[3]}</p>
-                    </div>
-                `;
             }
         }
 
@@ -276,4 +236,5 @@
         }
     </script>
 </body>
+
 </html>
