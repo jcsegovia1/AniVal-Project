@@ -160,9 +160,6 @@
 </head>
 
 <body>
-    <audio autoplay>
-        <source src="/Music/Greatest Studio Ghibli Soundtracks _ Peaceful Melodies for a Tranquil Mind [ ezmp3.cc ].mp3">
-    </audio>
     <div class="container">
         <h1>Kaitlyn's Valentines Date Pick-Your-Own Adventure</h1>
 
@@ -235,9 +232,12 @@
             </div>
         </div>
     </div>
-    <div class="rat-container">
+    <div class="rat-container" onclick="toggleAudio()">
         <div class="rat"></div>
     </div>
+    <audio id="backgroun-audio">
+        <source src="/Music/Greatest Studio Ghibli Soundtracks _ Peaceful Melodies for a Tranquil Mind [ ezmp3.cc ].mp3">
+    </audio>
 
     <script>
         let selections = {};
@@ -277,6 +277,18 @@
         function goBack(step) {
             document.getElementById(`step${step + 1}`).classList.add('hidden');
             document.getElementById(`step${step}`).classList.remove('hidden');
+        }
+
+        let isPlaying = false;
+        const audio = document.getElementById('background-audio');
+
+        function toggleAudio() {
+            if (isPlaying) {
+                audio.pause();
+            } else {
+                audio.play();
+            }
+            isPlaying = !isPlaying;
         }
     </script>
 </body>
