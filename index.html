@@ -315,7 +315,6 @@
         }
 
         /* Speech Bubble */
-        /* Speech Bubble */
         .speech-bubble {
             position: absolute;
             background: white;
@@ -326,8 +325,7 @@
             font-weight: bold;
             color: black;
             white-space: nowrap;
-            transform: translate(-50%, -100%) scaleX(1) !important;
-            /* Prevents flipping */
+            transform: translate(-50%, -100%);
             opacity: 0;
             transition: opacity 0.2s ease-in-out;
         }
@@ -380,7 +378,7 @@
             </div>
 
             <div id="step3" class="hidden">
-                <h2>Choose Your Outfit</h2>
+                <h2>Choose My Outfit</h2>
                 <div class="options">
                     <div class="option" onclick="chooseOption(3, 'Dark Academia', 'Images/dark-academia.jpg')">
                         <img src="Images/dark-academia.jpg" alt="Dark Academia">
@@ -493,33 +491,33 @@
             isPlaying = !isPlaying;
         }
         document.querySelectorAll(".pet-container div").forEach(pet => {
-            pet.addEventListener("click", function () {
-                // Remove existing speech bubbles
-                let oldBubble = pet.querySelector(".speech-bubble");
-                if (oldBubble) oldBubble.remove();
+    pet.addEventListener("click", function() {
+        // Remove existing speech bubbles
+        let oldBubble = pet.querySelector(".speech-bubble");
+        if (oldBubble) oldBubble.remove();
 
-                // Get pet type from class name
-                let petType = pet.classList[0]; // Assuming each pet has a unique class
+        // Get pet type from class name
+        let petType = pet.classList[0]; // Assuming each pet has a unique class
 
-                // Create new speech bubble
-                let bubble = document.createElement("div");
-                bubble.classList.add("speech-bubble");
-                bubble.innerText = petMessages[petType] || "Screech!"; // Default if not listed
+        // Create new speech bubble
+        let bubble = document.createElement("div");
+        bubble.classList.add("speech-bubble");
+        bubble.innerText = petMessages[petType] || "Screech!"; // Default if not listed
 
-                // Append and position above pet
-                pet.appendChild(bubble);
-                bubble.style.opacity = 1;
+        // Append and position above pet
+        pet.appendChild(bubble);
+        bubble.style.opacity = 1;
 
-                // Ensure the speech bubble does NOT flip with the pet
-                bubble.style.transform = "scaleX(1)";
+        // Ensure the speech bubble does NOT flip with the pet
+        bubble.style.transform = "scaleX(1)";
 
-                // Remove bubble after 1.5 seconds
-                setTimeout(() => {
-                    bubble.style.opacity = 0;
-                    setTimeout(() => bubble.remove(), 300);
-                }, 1500);
-            });
-        });
+        // Remove bubble after 1.5 seconds
+        setTimeout(() => {
+            bubble.style.opacity = 0;
+            setTimeout(() => bubble.remove(), 300);
+        }, 1500);
+    });
+});
 
     </script>
 </body>
