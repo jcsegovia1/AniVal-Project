@@ -188,8 +188,6 @@
             animation-delay: 0.5s;
         }
 
-
-
         .hidden {
             display: none;
         }
@@ -259,7 +257,7 @@
             height: 64px;
             background: url('Images/chip.gif') no-repeat;
             background-size: auto 100%;
-            
+
             cursor: pointer;
         }
 
@@ -286,7 +284,7 @@
             height: 64px;
             background: url('Images/black.gif') no-repeat;
             background-size: auto 100%;
-        
+
             cursor: pointer;
         }
 
@@ -314,6 +312,24 @@
             top: 0;
             right: 0;
             margin: 10px;
+        }
+
+        /* Speech Bubble */
+        /* Speech Bubble */
+        .speech-bubble {
+            position: absolute;
+            background: white;
+            border: 2px solid black;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            color: black;
+            white-space: nowrap;
+            transform: translate(-50%, -100%) scaleX(1) !important;
+            /* Prevents flipping */
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
         }
     </style>
 </head>
@@ -413,6 +429,13 @@
     </audio>
 
     <script>
+        const petMessages = {
+            "black": "I like Chappel Roan",
+            "rat": "Miso love you!!!",
+            "chip": "They call me the one eyed furball",
+            "oreo": "I'm a mudderfuggin bish fr",
+            "moonpie": "Moon magic!"
+        };
         let selections = {};
         let images = {};
         let labels = {};
@@ -469,6 +492,35 @@
             }
             isPlaying = !isPlaying;
         }
+        document.querySelectorAll(".pet-container div").forEach(pet => {
+            pet.addEventListener("click", function () {
+                // Remove existing speech bubbles
+                let oldBubble = pet.querySelector(".speech-bubble");
+                if (oldBubble) oldBubble.remove();
+
+                // Get pet type from class name
+                let petType = pet.classList[0]; // Assuming each pet has a unique class
+
+                // Create new speech bubble
+                let bubble = document.createElement("div");
+                bubble.classList.add("speech-bubble");
+                bubble.innerText = petMessages[petType] || "Screech!"; // Default if not listed
+
+                // Append and position above pet
+                pet.appendChild(bubble);
+                bubble.style.opacity = 1;
+
+                // Ensure the speech bubble does NOT flip with the pet
+                bubble.style.transform = "scaleX(1)";
+
+                // Remove bubble after 1.5 seconds
+                setTimeout(() => {
+                    bubble.style.opacity = 0;
+                    setTimeout(() => bubble.remove(), 300);
+                }, 1500);
+            });
+        });
+
     </script>
 </body>
 
