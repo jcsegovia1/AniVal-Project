@@ -105,7 +105,52 @@
             }
         }
 
-        /* Apply animation to all pets */
+        @keyframes moveFurther {
+            0% {
+                transform: translateX(0) scaleX(1);
+            }
+
+            49% {
+                transform: translateX(300px) scaleX(1);
+            }
+
+            50% {
+                transform: translateX(300px) scaleX(-1);
+            }
+
+            99% {
+                transform: translateX(0) scaleX(-1);
+            }
+
+            100% {
+                transform: translateX(0) scaleX(1);
+            }
+        }
+
+        @keyframes moveFurtherLeft {
+            0% {
+                transform: translateX(0) scaleX(1);
+            }
+
+            49% {
+                transform: translateX(-300px) scaleX(1);
+            }
+
+            50% {
+                transform: translateX(-300px) scaleX(-1);
+            }
+
+            99% {
+                transform: translateX(0) scaleX(-1);
+            }
+
+            100% {
+                transform: translateX(0) scaleX(1);
+            }
+        }
+
+
+        /* Ensure all pets start facing the correct way */
         .pet-container div {
             animation-duration: 3s;
             animation-timing-function: ease-in-out;
@@ -132,7 +177,8 @@
         }
 
         .moonpie {
-            animation-name: moveRightLeft;
+
+            animation-name: moveFurtherLeft;
             animation-delay: 2.25s;
             /* Offset from Chip */
         }
@@ -213,7 +259,7 @@
             height: 64px;
             background: url('Images/chip.gif') no-repeat;
             background-size: auto 100%;
-            margin: 30px;
+            
             cursor: pointer;
         }
 
@@ -240,7 +286,7 @@
             height: 64px;
             background: url('Images/black.gif') no-repeat;
             background-size: auto 100%;
-            margin: 30px;
+        
             cursor: pointer;
         }
 
